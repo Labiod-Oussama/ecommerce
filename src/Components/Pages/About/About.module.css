@@ -1,0 +1,12 @@
+.ttt{
+    position: relative;
+}
+.ttt::after{
+    position: absolute;
+    content: '';
+    width: 110px;
+    bottom: -10px;
+    left: 0;
+    height: 5px;
+    background-color: #795744;
+}

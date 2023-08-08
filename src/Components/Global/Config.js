@@ -7,3 +7,4 @@ const getCookie = (name) => {
     }
   }
 export const token = getCookie("token");
+export const serverAddress ='http://localhost:3001';

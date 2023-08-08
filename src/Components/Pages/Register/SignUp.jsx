@@ -3,11 +3,13 @@ import { Box, Button, useTheme } from '@mui/material'
 import { ErrorMessage, Field, Form, Formik, formik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../../Global/Header'
 import { useNavigate } from 'react-router-dom';
+import { InfoGlobal } from '../../../App';
 
 function SignUp() {
+    const { infos, setInfos } = useContext(InfoGlobal);
     const theme = useTheme();
     const navigate = useNavigate();
     const [Name, setName] = useState('')
@@ -54,8 +56,8 @@ function SignUp() {
                                     })
                                 }
                             ).then(res => res.json())
-                            .then(data => data.success && (navigate('/'), document.cookie = `token=${data.token}; expires=Tue, 19 Jan 2038 03:14:07 UTC; path=/`, localStorage.setItem('UserInfo', JSON.stringify(data.user))))
-                            .catch(er => console.log(er))
+                                .then(data => data.success && (navigate('/'), document.cookie = `token=${data.token}; expires=Tue, 19 Jan 2038 03:14:07 UTC; path=/`, localStorage.setItem('UserInfo', JSON.stringify(data.user)), setInfos({ token: data.token, UserInfos: JSON.parse(localStorage.getItem('UserInfo')) })))
+                                .catch(er => console.log(er))
                         }}
                     >
                         {

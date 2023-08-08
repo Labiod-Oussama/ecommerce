@@ -1,6 +1,5 @@
 [
     {
-        "Product_ID":1,
         "Product_name": "Suede Armchair",
         "Product_type": "Office",
         "Price": 159.99,
@@ -16,7 +15,6 @@
         "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":2,
         "Product_name": "Kitchen",
         "Product_type": "Kitchen",
         "Price": 599.99,
@@ -28,10 +26,10 @@
         "SKU":"Rec1Ntk7siEEW9ha1",
         "Brand":"ikea",
         "Color":["red","black"],
+        "Shipping":false,
          "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":3,
         "Product_name": "Living Room",
         "Product_type": "Living Room",
         "Price": 400.99,
@@ -43,11 +41,10 @@
         "SKU":"Rec1Ntk7siEEW9ha1",
         "Brand":"marcos",
         "Color":["green"],
-        "Shipping":true,
+        "Shipping":false,
         "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":4,
         "Product_name": "Wooden Table",
         "Product_type": "Kitchen",
         "Price": 58.99,
@@ -63,7 +60,6 @@
         "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":5,
         "Product_name": "bedroom",
         "Product_type": "Bedroom",
         "Price": 123.55,
@@ -75,10 +71,10 @@
         "SKU":"Rec1Ntk7siEEW9ha1",
         "Brand":"marcos",
         "Color":["black","yellow"],
+        "Shipping":true,
          "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":6,
         "Product_name": "Kids room",
         "Product_type": "Kids",
         "Price": 523.55,
@@ -90,10 +86,10 @@
         "SKU":"Rec1Ntk7siEEW9ha1",
         "Brand":"liddy",
         "Color":["black"],
+        "Shipping":true,
          "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":7,
         "Product_name": "Dining room",
         "Product_type": "Dining",
         "Price": 123.55,
@@ -105,10 +101,10 @@
         "SKU":"Rec1Ntk7siEEW9ha1",
         "Brand":"marcos",
         "Color":["blue","yellow"],
+        "Shipping":false,
          "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     },
     {
-        "Product_ID":8,
         "Product_name": "Dining room",
         "Product_type": "Dining",
         "Price": 881.55,
@@ -120,7 +116,7 @@
         "SKU":"Rec1Ntk7siEEW9ha1",
         "Brand":"liddy",
         "Color":["blue"],
-        "Shipping":true,
+        "Shipping":false,
         "Description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
     }
 ]

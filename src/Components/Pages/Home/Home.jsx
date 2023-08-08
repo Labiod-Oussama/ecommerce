@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Box, Button, Grid, TextField, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
 import Data from "../../Data/Data.json"
@@ -10,7 +10,11 @@ import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import Footer from '../../Global/Footer';
-
+import '../../Global/Sketlon/Loader.css';
+import { InfoGlobal } from '../../../App';
+import { serverAddress } from '../../Global/Config'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Item = ({ photo, title, description }) => {
    return (
       <Grid item sm={6} xs={12} md={5.8} lg={3.8} display="flex" flexDirection='column' alignItems='center' sx={{ bgcolor: 'primary.A400' }} p={4}>
@@ -21,31 +25,37 @@ const Item = ({ photo, title, description }) => {
    )
 }
 function Home() {
-   const UserInfos = JSON.parse(localStorage.getItem('UserInfo'))??{};
-   const getCookie = (name) => {
-      const value = "; " + document.cookie;
-      const parts = value.split("; " + name + "=");
-      if (parts.length === 2) {
-         return parts.pop().split(";").shift();
+   const { infos: { UserInfos, token }, setInfos } = useContext(InfoGlobal);
+   const [ProductsFeatured, setProductsFeatured] = useState([]);
+   const [loading, setLoading] = useState(true);
+   useEffect(() => {
+      const getTheFeatured = async () => {
+         setLoading(true)
+         const response = await axios.get(`${serverAddress}/getFeatured`);
+         setProductsFeatured(response.data.Featured);
+         setTimeout(() => {
+            setLoading(false);
+         }, 1500);
       }
-   }
-   const token = getCookie("token");
+      getTheFeatured();
+   }, [])
+   const navigate = useNavigate();
    const theme = useTheme()
    const isMatchedtablette = useMediaQuery(theme.breakpoints.down('lg'))
    const isMatchedphone = useMediaQuery(theme.breakpoints.down('md'))
    return (
       <Box overflow='hidden'>
-         <Header value={0} islogin={token ?true:false} UserInfos={UserInfos}/>
+         <Header value={0} islogin={token ? true : false}    />
          <Box p='0px 0px 20px 30px' display='flex'>
             <Box flex={isMatchedtablette ? '2' : '.9'} display='flex' flexDirection='column' p={isMatchedphone ? 1 : 2} mt={isMatchedtablette ? "50px" : 0} justifyContent='center'>
-               <Typography variant='h3' sx={{ fontWeight: 'bold' }} color='primary.dark' gutterBottom >
+               <Typography variant='h3' sx={{ fontWeight: 'bolder', fontFamily: 'Comfortaa' }} color='primary.dark' gutterBottom >
                   Design Your <br />
                   Comfort Zone
                </Typography>
                <Typography variant='h5' color='primary' gutterBottom sx={{ wordSpacing: '2px', lineHeight: '40px' }}  >
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis alias?
                </Typography>
-               <Button variant='contained' color='secondary' sx={{ width: 180, height: 50, mt: 2 }}>
+               <Button variant='contained' color='secondary' onClick={() => navigate('/Products')} sx={{ width: 180, height: 50, mt: 2, fontSize: '1.1em', fontWeight: 'bold', letterSpacing: '2.5px' }}>
                   SHOP NOW
                </Button>
             </Box>
@@ -58,14 +68,22 @@ function Home() {
             <Typography variant={isMatchedphone ? 'h4' : 'h2'} color='primary.dark' gutterBottom mt={3}>
                Featured Products
             </Typography>
-            <Grid container spacing={2} mt={3}>
+            <Grid container spacing={3} mt={3}>
                {
-                  Data.filter(Product => Product.Featured).map(Product => (
-                     <Products name={Product.Product_name} type={Product.Product_type} photo={Product.image} price={Product.Price} height={350} />
+                  loading && <Box className='loader' sx={{ margin: '100px 50%' }} />
+               }
+               {
+                  !loading && ProductsFeatured.map((Product, index) => (
+                     <Products key={index} product_id={Product._id} name={Product.Product_name} type={Product.Product_type} photo={Product.image} price={Product.Price} height={350} />
                   ))
                }
+               {/* {
+                  Data.filter(Product => Product.Featured).map((Product,index) => (
+                     <Products key={index} name={Product.Product_name} type={Product.Product_type} photo={Product.image} price={Product.Price} height={350} />
+                  ))
+               } */}
             </Grid>
-            <Button variant='contained' color='secondary' style={{ marginTop: '50px' }}>
+            <Button variant='contained' color='secondary' onClick={() => navigate('/Products')} style={{ marginTop: '50px' }}>
                ALL PRODUCTS
             </Button>
          </Box>

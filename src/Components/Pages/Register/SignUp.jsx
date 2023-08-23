@@ -7,6 +7,7 @@ import React, { useContext, useState } from 'react'
 import Header from '../../Global/Header'
 import { useNavigate } from 'react-router-dom';
 import { InfoGlobal } from '../../../App';
+import { serverAddress } from '../../Global/Config';
 
 function SignUp() {
     const { infos, setInfos } = useContext(InfoGlobal);
@@ -45,7 +46,7 @@ function SignUp() {
                         validationSchema={SignSchema}
                         onSubmit={(values, action) => {
                             action.setSubmitting(false)
-                            fetch(`http://localhost:3001/signup`,
+                            fetch(`${serverAddress}/signup`,
                                 {
                                     method: 'post',
                                     headers: { 'Content-Type': 'application/json' },

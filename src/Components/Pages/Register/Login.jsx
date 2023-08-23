@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Header from '../../Global/Header'
 import { useNavigate } from 'react-router-dom'
 import { InfoGlobal } from '../../../App';
+import { serverAddress } from '../../Global/Config';
 
 function Login() {
     const { infos, setInfos } = useContext(InfoGlobal);
@@ -25,7 +26,7 @@ function Login() {
             setEmptyEmail(false)
             setEmptyPassword(false)
             setErrorLogin('')
-            fetch('http://localhost:3001/login', {
+            fetch(`${serverAddress}/login`, {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

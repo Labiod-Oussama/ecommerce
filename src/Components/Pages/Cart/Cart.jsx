@@ -43,7 +43,7 @@ function Cart() {
     }, [loading, Carts]);
     const [LoadAmount, setLoadAmount] = useState(false)
     return (
-        <Box sx={{position:'relative'}}>
+        <Box sx={{ position: 'relative' }}>
             <Header islogin={token ? true : false} />
             <Box sx={{ p: 3 }}>
                 <Typography variant='h3' color='primary' textAlign='center' mb={3}>
@@ -54,12 +54,12 @@ function Cart() {
                         <Typography variant='body1' color='primary.text' sx={{ height: '50px', lineHeight: '50px', borderBottom: 'solid 2px #ab7a5f' }}>
                             SHOPPING CART
                         </Typography>
-                        <Box sx={{ height:'auto',maxHeight:'360px', overflowY: 'auto', '&::-webkit-scrollbar': { width: 8 }, '&::-webkit-scrollbar-track': { backgroundColor: '#f5f5f5' }, '&::-webkit-scrollbar-thumb': { backgroundColor: '#ab7a5f', borderRadius: 4 } }}>
+                        <Box sx={{ height: 'auto', maxHeight: '360px', overflowY: 'auto', '&::-webkit-scrollbar': { width: 8 }, '&::-webkit-scrollbar-track': { backgroundColor: '#f5f5f5' }, '&::-webkit-scrollbar-thumb': { backgroundColor: '#ab7a5f', borderRadius: 4 } }}>
                             {loading ? (
                                 <Typography variant='h4' mt={1} mb={1} >Loading...</Typography>
                             ) : (
-                                Array.isArray(Carts.products) && Carts.products.length > 0 ? (
-                                    Carts.products.map((cart, index) => (
+                                Array.isArray(Carts?.products) && Carts?.products?.length > 0 ? (
+                                    Carts?.products?.map((cart, index) => (
                                         <OneCart
                                             key={index}
                                             productId={cart.productId._id}
@@ -121,7 +121,7 @@ function Cart() {
                 </Box>
             </Box>
             {
-                LoadAmount && <PageLoading/>
+                LoadAmount && <PageLoading />
             }
         </Box>
     )

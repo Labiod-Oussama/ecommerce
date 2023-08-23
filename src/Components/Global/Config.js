@@ -7,4 +7,4 @@ const getCookie = (name) => {
     }
   }
 export const token = getCookie("token");
-export const serverAddress ='http://localhost:3001';
+export const serverAddress ='https://ecommerce-oiw9.onrender.com';
